@@ -1,22 +1,26 @@
 #pragma once
 
-#include <string>
+#include <SFML/Graphics.hpp>
+#include "world.h"
+
+const int SPEED = 10;
+
+enum class Direction {
+    FORWARD,
+    BACKWARD,
+    LEFT,
+    RIGHT
+};
 
 class Player {
 public:
-    Player(std::string name);
-    
-    std::string getName();
-    int getPositionX(); 
-    int getPositionY();
+    int positionX = 0;
+    int positionY = 0;
+    float angle = 0.f;
 
-    void init(float x, float y);
-    void move(float x, float y);
+    void init(int x, int y);
+    void move(Direction direction, World& world);
+    void rotate(float angle);
 
-
-private:
-    float positionX = 0.f;
-    float positionY = 0.f;
-    std::string name;
-
+    void printPlayer(sf::RenderWindow& window, World& world);
 };

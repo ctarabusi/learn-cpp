@@ -1,55 +1,56 @@
 #include <iostream>
 #include "player.h"
-#include "keyboard_handling.h"
-#include <SFML/Graphics.hpp>
+#include "SFML/Graphics.hpp"
+#include "world.h"
+#include "raycast.h"
+#include "key_handler.h"
+#include "SFML/Audio.hpp"
+
+int WINDOW_WIDTH = 800;
+int WINDOW_HEIGHT = 800;
+
+int PLAYER_STARTING_X = 295;
+int PLAYER_STARTING_Y = 350;
+
+constexpr bool debug_mode = false;
 
 int main() {
+    // Create a sound buffer and load a WAV file
+    sf::Music music;
+    if (!music.openFromFile("theme.mp3")) {
+        // Error handling if loading fails
+        return EXIT_FAILURE;
+    }
+    //music.play();
 
-    Player player("Christian");
-    std::cout << player.getName() << std::endl;
+    Player player;
+    player.init(PLAYER_STARTING_X, PLAYER_STARTING_Y);
 
-    player.init(395.f, 295.f);
+    sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Learn C++");
 
-    // Create a window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Dot Drawing");
+    World world(WINDOW_WIDTH, WINDOW_HEIGHT);
 
-    // Create a dot shape
-    sf::CircleShape dot(10.f);
-    dot.setFillColor(sf::Color::Red);
-    dot.setPosition(player.getPositionX(), player.getPositionY()); // Position the dot in the center of the window initially
+    Raycast raycast;
 
+    sf::Texture textureWall;
+    if (!textureWall.loadFromFile("texture.png")) {
+        return EXIT_FAILURE;
+    }
+
+    sf::Texture textureSky;
+    if (!textureSky.loadFromFile("sky.png")) {
+        return EXIT_FAILURE;
+    }
+
+    sf::Vector2i previousMousePosition = sf::Mouse::getPosition(window);
     while (window.isOpen()) {
-        // Handle events
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed) {
-                window.close();
-            }
-            else if (event.type == sf::Event::KeyPressed) {
-                if (event.key.code == sf::Keyboard::W) {
-                    // W key pressed
-                    player.move(0, -1.f);
-                } else if (event.key.code == sf::Keyboard::A) {
-                    player.move(-1.f, 0);
-                } else if (event.key.code == sf::Keyboard::S) {
-                    player.move(0, 1.0f);
-                } else if (event.key.code == sf::Keyboard::D) {
-                    player.move(1.f, 0);
-                } else if (event.key.code == sf::Keyboard::Q) {
-                    // Q key pressed
-                }
-            }
+        checkKeyEvent(window, player, world, previousMousePosition);
 
-            dot.setPosition(player.getPositionX(), player.getPositionY()); // Position the dot in the center of the window initially
-        }
-
-        // Clear the window
         window.clear();
+        world.drawWorld(debug_mode, window, textureSky);
 
-        // Draw the dot
-        window.draw(dot);
+        raycast.rayCastPlayer(debug_mode, window, player, world, textureWall);
 
-        // Display the window
         window.display();
     }
 
