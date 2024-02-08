@@ -1,0 +1,14 @@
+# ninja log v5
+9	270	1707388185699390718	CMakeFiles/learn_with_clion.dir/src/keyboard_handling.cpp.o	bf88895807318208
+5	440	1707388290063537660	CMakeFiles/learn_with_clion.dir/src/main.cpp.o	268ea2e3d8a6749a
+1	78	1707388603412234480	build.ninja	ecc75032582e2059
+3	324	1707303739168592679	CMakeFiles/learn_with_clion.dir/main.cpp.o	79c8425c73d28887
+440	473	1707388290104012041	learn_with_clion	72d5c8e811372bdb
+9	238	1707388185663370161	CMakeFiles/learn_with_clion.dir/src/player.cpp.o	b66f4178e610f5fc
+5	263	1707383749915958824	CMakeFiles/learn_with_clion.dir/src/book.cpp.o	dcfda57eae904312
+3	281	1707388879581979423	CMakeFiles/learn_with_clion.dir/src/player.cpp.o	b66f4178e610f5fc
+3	311	1707388879613042351	CMakeFiles/learn_with_clion.dir/src/keyboard_handling.cpp.o	bf88895807318208
+3	355	1707388879656149415	CMakeFiles/learn_with_clion.dir/src/main.cpp.o	268ea2e3d8a6749a
+355	526	1707388879834195779	learn_with_clion	72d5c8e811372bdb
+4	386	1707388934725058547	CMakeFiles/learn_with_clion.dir/src/main.cpp.o	268ea2e3d8a6749a
+386	432	1707388934778695574	learn_with_clion	72d5c8e811372bdb

@@ -1,0 +1,3 @@
+/Users/ctarabusi/Projects/learn-with-clion/cmake-build-debug/CMakeFiles/learn_with_clion.dir
+/Users/ctarabusi/Projects/learn-with-clion/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/ctarabusi/Projects/learn-with-clion/cmake-build-debug/CMakeFiles/rebuild_cache.dir
