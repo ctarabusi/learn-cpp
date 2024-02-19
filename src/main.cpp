@@ -21,7 +21,7 @@ int main() {
         // Error handling if loading fails
         return EXIT_FAILURE;
     }
-    //music.play();
+    music.play();
 
     Player player;
     player.init(PLAYER_STARTING_X, PLAYER_STARTING_Y);
