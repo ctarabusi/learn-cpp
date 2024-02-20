@@ -8,7 +8,7 @@ A simple raycasting and usage of bare bone textures and music is also added.
 ![Preview](game-preview.png)
 
 
-To build you need:
+To build on MAC you need:
 
 > brew install cmake
 
