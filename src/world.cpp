@@ -42,13 +42,12 @@ World::World(int width, int heigth) {
         }
     }
 
-    gridX = new int[10];
-    gridY = new int[10];
     for (int i = 0; i < GRID_COUNT; i++) {
         gridX[i] = GRID_X_SIZE * i;
         gridY[i] = GRID_Y_SIZE * i;
     }
 }
+
 
 void World::drawWorld(bool debug_mode, sf::RenderWindow& window, sf::Texture& textureSky) const {
 

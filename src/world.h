@@ -39,7 +39,7 @@ private:
     std::vector<Obstacle> treasures;
     std::vector<Obstacle> obstacles;
 
-    int* gridX;
-    int* gridY;
+    int gridX[10];
+    int gridY[10];
 };
 
